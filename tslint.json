@@ -1,0 +1,14 @@
+{
+    "defaultSeverity": "warning",
+    "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+    "jsRules": {},
+    "rules": {
+      "no-console": true,
+      "no-submodule-imports": false
+    },
+    "rulesDirectory": [],
+    "linterOptions": {
+      "exclude": ["node_modules/**/*.*", "brands/**/*.*", "mocks/*.*", "scripts/*.*", "views/**/*.*"]
+    }
+  }
+  
