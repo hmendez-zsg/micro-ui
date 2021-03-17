@@ -1,17 +1,16 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { IResponse } from "./types";
+import React, { useContext, useEffect, useState } from "react";
+import AppContext from "./AppContext";
+import { IAppContext, IResponse } from "./types";
 
 const Insults = () => {
+  const appContext: IAppContext = useContext(AppContext);
   const [insult, setInsult] = useState("");
 
   const fetchInsult = async () => {
-    const response = await axios.get<IResponse>(
-      "http://localhost:8080/v2/api/simple/insult"
-    );
+    const response = await axios.get<IResponse>(appContext.serviceHost);
     if (response && response.data && response.data.insult) {
       setInsult(response.data.insult);
-      console.log(response.data.insult);
     }
   };
 
